@@ -22,9 +22,16 @@ app.get("/blog/:artigo?", function(req, res){
   res.send("Bem Vindo ao meu blog!");
 });
 
-app.get("/canal", function(req, res){
-  res.send("Bem Vindo ao meu canal!");
-});
+//passando via queryparms
+app.get("/canal/youtube", function(req, res){
+  var canal = req.query["canal"];
+  if(canal){
+    res.send(canal);
+  }else{
+    res.send("Nenhum canal fornecido!");
+  }
+
+})
 
 app.get("/ola/:nome/:empresa", function (req, res){
   //req => dados enviados pelo usuário
